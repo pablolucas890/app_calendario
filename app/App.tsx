@@ -1,20 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Buttom } from "./src/components/Buttom"
+import { styles } from './style';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Ola João</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.nomedapessoa}>Ola João</Text>
+      <Buttom />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f1f1f1',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
