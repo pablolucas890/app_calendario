@@ -13,17 +13,24 @@ Aplicativo de Calendário
 	- via site ---- 16.14.2 LTS
 		- (https://nodejs.org/en/download/)
 - Instalar npm se nao tiver instalado
-	- npm --version (se tiver um numero é pq esta instaldo)
+	- npm --version (se tiver um numero é pq esta instalado)
 - Instalar o Yarn Globalmente via npm
 	- npm install --global yarn
-	- yarn --version (confirmar)
-- Clonar Repositório
+- confirmar se o Yarn Instalou
+	- yarn --version
+- Clonar Repositório 
+	- git clone https://github.com/pablolucas890/app_calendario.git
 - entrar na pasta "app"
-- rodar $ yarn (baixa pacotes)
-- rodar $ yarn start
-- Instalar expo (Y)
+- rodar
+	- yarn (baixar pacotes)
+- rodar
+	- yarn start (inicia o app)
+- Se pedir para Instalar o expo-cli é só teclar Y
+	- yarn start (cada vez que for executar o app)
 - baixar Expo Go no celular
-- Scanear QRCode
+- Scanear QRCode gerado no terminal
+
+#Instalar:
 
 - Temas pro visual code
 
