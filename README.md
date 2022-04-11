@@ -21,6 +21,7 @@ Aplicativo de Calendário
 - entrar na pasta "app"
 - rodar $ yarn (baixa pacotes)
 - rodar $ yarn start
+- Instalar expo (Y)
 - baixar Expo Go no celular
 - Scanear QRCode
 
