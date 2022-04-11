@@ -23,3 +23,20 @@ Aplicativo de Calendário
 - rodar $ yarn start
 - baixar Expo Go no celular
 - Scanear QRCode
+
+- Temas pro visual code
+
+	- Bracket pair colorizer
+	- color highlight
+	- Matrial icon theme
+	- Drakula theme
+	- Vscode-styled-components
+
+- Extençõe pro Google
+
+	- JSON Viewer
+
+- Configuraçõe do vscode
+	- CTRL + SHIFT + P
+	- Settings.Json
+	- https://github.com/pablolucas890/vscode_config_settings.json
