@@ -37,7 +37,7 @@ Aplicativo de Calendário
 	- Bracket pair colorizer
 	- color highlight
 	- Matrial icon theme
-	- Drakula theme
+	- Dracula theme
 	- Vscode-styled-components
 
 - Extençõe pro Google
