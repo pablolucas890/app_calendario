@@ -1,14 +1,15 @@
 
 import { StyleSheet } from 'react-native';
+import { color } from '../../util/color';
 
 export const styles = StyleSheet.create({
     botao: {
-        backgroundColor: '#019D4A',
+        backgroundColor: color.verde,
         alignItems: 'center',
         justifyContent: 'center',
         color: 'white',
         padding: 15,
-        width: '70%',
+        width: '100%',
         marginBottom: 5,
         borderRadius: 8,
         shadowOffset: { width: 2, height: 3, },
@@ -18,6 +19,7 @@ export const styles = StyleSheet.create({
     },
     texto: {
         shadowOpacity: 0.25,
-        color: 'white'
+        color: 'white',
+        fontSize: 18
     },
 });

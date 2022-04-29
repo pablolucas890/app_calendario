@@ -12,5 +12,9 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: 'justify',
         fontSize: 14
+    },
+    center:{
+        width: '100%',
+        paddingHorizontal: '15%'
     }
 });

@@ -4,6 +4,9 @@ import { styles } from './style';
 import AppLoading from 'expo-app-loading';
 import { Login } from "./src/pages/login";
 import { Back } from "./src/components/Back";
+import { Input } from "./src/components/input";
+import { Title } from "./src/components/Title";
+import { TextGray } from "./src/components/TextGray";
 
 import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-fonts/quicksand'
 export default function App() {
@@ -17,6 +20,8 @@ export default function App() {
     return <AppLoading />
 
   return (
+    // Tela inicial
+    //
     // <View style={styles.container}>
     //   <View>
     //     <Image source={require('./src/assets/logo.png')} />
@@ -24,13 +29,20 @@ export default function App() {
     //   <Text style={styles.description}>
     //     Gerencie seus eventos e veja todos os eventos futuros, <Text style={{ fontWeight: 'bold' }}>em um só lugar </Text>
     //   </Text>
-    //   <Buttom title='Entrar' />
-    //   <Buttom title='Público' />
+    //   <View style={styles.center}>
+    //     <Buttom title='Entrar' />
+    //     <Buttom title='Público' />
+    //   </View>
     // </View>
-    <View style={styles.container}>
-      <Back />
-    </View>
-
+    // <View style={styles.container}>
+    //   <Input placeholder='Email' />
+    //   <Input placeholder='Senha' />
+    //   <Buttom title='Entrar'/>
+    //   <Title title='Login' sizeReturn={35}/>
+    //   <TextGray text='Esqueci minha senha'/>
+    //   <Back/>
+    // </View>
+    <Login />
   );
 }
 

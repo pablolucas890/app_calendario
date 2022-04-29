@@ -1,16 +1,18 @@
 
 import { StyleSheet } from 'react-native';
+import { color } from '../../util/color';
 
 export const styles = StyleSheet.create({
     botao: {
-        backgroundColor: '#019D4A',
+        backgroundColor: color.verde,
         width: 50,
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 15,
     },
     texto: {
         color: 'white',
-        fontSize: 32
+        fontSize: 26
     },
 });
