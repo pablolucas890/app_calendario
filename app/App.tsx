@@ -7,6 +7,7 @@ import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
 import { Title } from "./src/components/Title";
 import { TextGray } from "./src/components/TextGray";
+import { Label } from "./src/components/Label";
 
 import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-fonts/quicksand'
 export default function App() {
@@ -42,7 +43,10 @@ export default function App() {
     //   <TextGray text='Esqueci minha senha'/>
     //   <Back/>
     // </View>
-    <Login />
+    //<Login />
+      <View style={styles.container}>
+        <Label title='Título'/>
+      </View>
   );
 }
 
