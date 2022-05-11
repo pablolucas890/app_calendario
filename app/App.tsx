@@ -46,6 +46,13 @@ export default function App() {
     //<Login />
       <View style={styles.container}>
         <Label title='Título'/>
+        <Label title='Descrição'/>
+        <Label title='Tipo de evento'/>
+        <Label title='Data'/>
+        <Label title='Configurações'/>
+        <Label title='Notificações'/>
+        <Label title='Editar informações pessoais'/>
+        <Label title='Notificações Avançadas'/>
       </View>
   );
 }
