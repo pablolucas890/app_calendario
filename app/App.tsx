@@ -5,6 +5,7 @@ import AppLoading from 'expo-app-loading';
 import { Login } from "./src/pages/login";
 import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
+import { InputFormulario } from "./src/components/InputFormulario";
 import { Title } from "./src/components/Title";
 import { TextGray } from "./src/components/TextGray";
 
@@ -42,7 +43,12 @@ export default function App() {
     //   <TextGray text='Esqueci minha senha'/>
     //   <Back/>
     // </View>
-    <Login />
+    //<Login />
+
+    //Tela Cadatro Evento (João Paulo eJoão Henrique)
+     <View style={styles.container}>
+        <InputFormulario placeholder="0/30" />
+     </View>
   );
 }
 
