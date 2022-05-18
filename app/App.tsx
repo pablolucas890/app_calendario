@@ -8,6 +8,7 @@ import { Input } from "./src/components/input";
 import { Title } from "./src/components/Title";
 import { TextGray } from "./src/components/TextGray";
 import { Label } from "./src/components/Label";
+import { Logout } from "./src/components/IconLogout"
 
 import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-fonts/quicksand'
 export default function App() {
@@ -44,9 +45,13 @@ export default function App() {
     //   <Back/>
     // </View>
     //<Login />
-      <View style={styles.container}>
-        <Label title='Título'/>
-      </View>
+    //  <View style={styles.container}>
+    //    <Label title='Título'/>
+    //  </View>
+        <View style={styles.container}>
+          <Logout icon='log-out' text='Sair'/>
+        </View>
+
   );
 }
 
