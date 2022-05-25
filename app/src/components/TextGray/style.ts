@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         color: color.cinza2,
         fontSize: 13,
         opacity: 0.5,
-        textDecorationLine: 'underline' 
+        textDecorationLine: 'underline',
+        fontFamily: 'Quicksand_400Regular',
     }
 });
