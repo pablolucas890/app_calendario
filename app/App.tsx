@@ -8,6 +8,7 @@ import { Input } from "./src/components/input";
 import { Title } from "./src/components/Title";
 import { Event } from "./src/components/Event";
 import { TextGray } from "./src/components/TextGray";
+import { Notification } from "./src/components/Notification";
 import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand'
 export default function App() {
 
@@ -49,6 +50,7 @@ export default function App() {
       <Event colorReceived='orange' description='Edital para colsistas uallllllllllll s sssssssssssssss s'/>
       <TextGray text='Esqueci minha senha'/>
       <Title title='Login' sizeReturn={35}/>
+      <Notification description='Formal' active={true}/>
     </View>
   );
 }
