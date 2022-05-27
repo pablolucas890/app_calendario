@@ -3,6 +3,7 @@ import { Buttom } from "./src/components/Buttom";
 import { styles } from './style';
 import AppLoading from 'expo-app-loading';
 import { Login } from "./src/pages/login";
+import { BemVindo } from "./src/pages/bemVindo";
 import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
 import { InputFormulario } from "./src/components/InputFormulario";
@@ -48,14 +49,15 @@ export default function App() {
     // </View>
     //<Login />
 
-    <View style={[styles.container, {marginHorizontal: '10%'}]}>
+    /*<View style={[styles.container, {marginHorizontal: '10%'}]}>
       <Buttom title='Entrar'/>
       <Input placeholder='Senha' />
       <Event colorReceived='orange' description='Edital para colsistas uallllllllllll s sssssssssssssss s'/>
       <TextGray text='Esqueci minha senha'/>
       <Title title='Login' sizeReturn={35}/>
       <HelloStraus name='Straus'/> 
-    </View>
+    </View>*/
+    <BemVindo/>
   );
 }
 
