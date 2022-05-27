@@ -9,7 +9,9 @@ import { InputFormulario } from "./src/components/InputFormulario";
 import { Title } from "./src/components/Title";
 import { Event } from "./src/components/Event";
 import { TextGray } from "./src/components/TextGray";
+
 import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand'
+
 export default function App() {
 
   const [fontsLoaded] = useFonts({
