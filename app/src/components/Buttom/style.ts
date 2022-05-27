@@ -15,11 +15,11 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 2, height: 3, },
         shadowColor: 'black',
         shadowOpacity: 0.25,
-        fontFamily: 'Quicksand_700Regular'
     },
     texto: {
         shadowOpacity: 0.25,
         color: 'white',
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: 'Quicksand_600SemiBold'
     },
 });
