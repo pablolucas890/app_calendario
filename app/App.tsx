@@ -44,6 +44,7 @@ export default function App() {
     //   <Back/>
     // </View>
     //<Login />
+
     <View style={[styles.container, {marginHorizontal: '10%'}]}>
       <Buttom title='Entrar'/>
       <Input placeholder='Senha' />
