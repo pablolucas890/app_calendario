@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingLeft:15,
         color: color.cinza3,
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily: 'Quicksand_400Regular',
+        fontSize: 20
     }
 });
