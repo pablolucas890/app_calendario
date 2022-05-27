@@ -8,6 +8,7 @@ import { Input } from "./src/components/input";
 import { Title } from "./src/components/Title";
 import { Event } from "./src/components/Event";
 import { TextGray } from "./src/components/TextGray";
+import { ButtonNotification} from "./src/components/ButtonNotification"
 import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand'
 export default function App() {
 
@@ -43,12 +44,11 @@ export default function App() {
     //   <Back/>
     // </View>
     //<Login />
-    <View style={[styles.container, {marginHorizontal: '10%'}]}>
-      <Buttom title='Entrar'/>
-      <Input placeholder='Senha' />
-      <Event colorReceived='orange' description='Edital para colsistas uallllllllllll s sssssssssssssss s'/>
-      <TextGray text='Esqueci minha senha'/>
-      <Title title='Login' sizeReturn={35}/>
+    <View style={styles.container}>
+      <ButtonNotification title="Informal" active = {false} 
+      />
+      <ButtonNotification title="Formal" active = {true} 
+      />
     </View>
   );
 }
