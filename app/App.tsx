@@ -5,6 +5,7 @@ import AppLoading from 'expo-app-loading';
 import { Login } from "./src/pages/login";
 import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
+import { InputFormulario } from "./src/components/InputFormulario";
 import { Title } from "./src/components/Title";
 import { Event } from "./src/components/Event";
 import { TextGray } from "./src/components/TextGray";
