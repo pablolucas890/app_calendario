@@ -7,14 +7,14 @@ import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
 import { InputFormulario } from "./src/components/InputFormulario";
 import { Title } from "./src/components/Title";
+import { Event } from "./src/components/Event";
 import { TextGray } from "./src/components/TextGray";
-
-import { useFonts, Quicksand_400Regular, Quicksand_700Bold } from '@expo-google-fonts/quicksand'
+import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand'
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    Quicksand_400Regular,
-    Quicksand_700Bold
+    Quicksand_600SemiBold,
+    Quicksand_400Regular
   })
 
   if (!fontsLoaded)
@@ -44,11 +44,13 @@ export default function App() {
     //   <Back/>
     // </View>
     //<Login />
-
-    //Tela Cadatro Evento (João Paulo eJoão Henrique)
-     <View style={styles.container}>
-        <InputFormulario placeholder="0/30" />
-     </View>
+    <View style={[styles.container, {marginHorizontal: '10%'}]}>
+      <Buttom title='Entrar'/>
+      <Input placeholder='Senha' />
+      <Event colorReceived='orange' description='Edital para colsistas uallllllllllll s sssssssssssssss s'/>
+      <TextGray text='Esqueci minha senha'/>
+      <Title title='Login' sizeReturn={35}/>
+    </View>
   );
 }
 
