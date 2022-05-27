@@ -5,11 +5,14 @@ import AppLoading from 'expo-app-loading';
 import { Login } from "./src/pages/login";
 import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
+import { InputFormulario } from "./src/components/InputFormulario";
 import { Title } from "./src/components/Title";
 import { Event } from "./src/components/Event";
 import { TextGray } from "./src/components/TextGray";
+
 import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand'
-import { HelloStraus } from './src/components/HelloStraus';
+
+
 export default function App() {
 
   const [fontsLoaded] = useFonts({
@@ -44,6 +47,7 @@ export default function App() {
     //   <Back/>
     // </View>
     //<Login />
+
     <View style={[styles.container, {marginHorizontal: '10%'}]}>
       <Buttom title='Entrar'/>
       <Input placeholder='Senha' />
