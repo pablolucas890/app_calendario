@@ -3,10 +3,10 @@ import { styles } from './style';
 
 interface ButtomProps extends TouchableOpacityProps {
     title: string;
-    sizeReturn: Number;
+    sizeReturn: number;
 }
 export function Title({ title, sizeReturn, ...rest }: ButtomProps) {
-    const num = 35;
+    const num:number = sizeReturn;
     return (
         <Text style={[styles.title, {fontSize: num}]}>{title}</Text>
     );

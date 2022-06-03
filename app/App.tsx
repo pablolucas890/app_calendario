@@ -39,24 +39,7 @@ export default function App() {
     //     <Buttom title='Público' />
     //   </View>
     // </View>
-    // <View style={styles.container}>
-    //   <Input placeholder='Email' />
-    //   <Input placeholder='Senha' />
-    //   <Buttom title='Entrar'/>
-    //   <Title title='Login' sizeReturn={35}/>
-    //   <TextGray text='Esqueci minha senha'/>
-    //   <Back/>
-    // </View>
-    //<Login />
-
-    /*<View style={[styles.container, {marginHorizontal: '10%'}]}>
-      <Buttom title='Entrar'/>
-      <Input placeholder='Senha' />
-      <Event colorReceived='orange' description='Edital para colsistas uallllllllllll s sssssssssssssss s'/>
-      <TextGray text='Esqueci minha senha'/>
-      <Title title='Login' sizeReturn={35}/>
-      <HelloStraus name='Straus'/> 
-    </View>*/
+    // <Login />
     <BemVindo/>
   );
 }

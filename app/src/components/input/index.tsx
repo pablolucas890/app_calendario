@@ -1,7 +1,7 @@
-import { TouchableOpacityProps, TextInput } from 'react-native';
+import { TextInputProps, TextInput } from 'react-native';
 import { styles } from './style';
 
-interface ButtomProps extends TouchableOpacityProps {
+interface ButtomProps extends TextInputProps {
     placeholder: string;
 }
 export function Input({ placeholder, ...rest }: ButtomProps) {
@@ -10,7 +10,7 @@ export function Input({ placeholder, ...rest }: ButtomProps) {
         <TextInput
         style={styles.input}
         placeholder={placeholder}
-        keyboardType="numeric"
+        {...rest}
       />
     );
 }
