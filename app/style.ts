@@ -7,6 +7,12 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    containerTeste: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 40
+    },
     description: {
         marginHorizontal: '15%',
         marginBottom: 10,
