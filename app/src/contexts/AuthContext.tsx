@@ -30,12 +30,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [loading, setLoading] = useState(false);
 
     const login = useCallback(async(data: loginType) => {
-        console.log('gj')
-        const response = await api.get('/events').then((res => {
-                console.log('ok')
-                console.log(res);
-                console.log(res.data)
-            })).catch(error => console.log(error))
+        try {
+            const response = await api.get('/events');
+            console.log(response.data);
+        } catch (err) {
+            console.log(err)
+        }
         
 
         setLoading(true);
