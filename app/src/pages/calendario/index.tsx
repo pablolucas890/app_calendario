@@ -2,6 +2,7 @@ import { Calendar } from 'react-native-calendario';
 export function Calendario() {
   return(
     <Calendar
+    
       onPress={(range) => console.log(range)}
       minDate={new Date(2018, 3, 20)}
       startDate={new Date(2018, 3, 30)}
