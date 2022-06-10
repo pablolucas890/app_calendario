@@ -5,9 +5,11 @@ import { Title } from '../../components/Title'
 import { Input } from '../../components/input'
 import { TextGray } from '../../components/TextGray'
 import { Buttom } from '../../components/Buttom'
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../global/props';
+type Props = NativeStackScreenProps<RootStackParamList>;
 
-
-export function BemVindo() {
+export function BemVindo({ navigation }: Props) {
 
     const alertMessage = () =>
         Alert.alert('Você não preencheu todos os campos', 'Atenção', [
@@ -18,6 +20,9 @@ export function BemVindo() {
             },
             { text: 'OK', onPress: () => console.log('OK') },
         ]);
+        function handleBack() {
+            navigation.navigate('Login')
+        }
     return (
 
         <KeyboardAvoidingView
@@ -28,7 +33,7 @@ export function BemVindo() {
                 <ScrollView>
                     <View style={styles.container}>
                         <View style={styles.header}>
-                            <Back />
+                            <Back onPress={handleBack}/>
                         </View>
                         <View>
                             <Title title='Bem Vindo(a)' sizeReturn={35} />
@@ -40,7 +45,7 @@ export function BemVindo() {
                             <Input placeholder='Confirme sua senha' keyboardType='default' />
                         </View>
                         <View style={styles.middle2}>
-                            <Buttom color={true} title='Entrar' onPress={alertMessage}/>
+                            <Buttom color={true} title='Entrar' onPress={alertMessage} />
                         </View>
                     </View>
                 </ScrollView>

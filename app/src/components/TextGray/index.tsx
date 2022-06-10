@@ -1,4 +1,4 @@
-import { TouchableOpacityProps, Text } from 'react-native';
+import { TouchableOpacityProps, Text, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 
 interface ButtomProps extends TouchableOpacityProps {
@@ -6,6 +6,8 @@ interface ButtomProps extends TouchableOpacityProps {
 }
 export function TextGray({ text, ...rest }: ButtomProps) {
     return (
-        <Text style={styles.text}>{text}</Text>
+        <TouchableOpacity {...rest}>
+            <Text style={styles.text}>{text}</Text>
+        </TouchableOpacity>
     );
 }
