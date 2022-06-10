@@ -4,6 +4,7 @@ import { styles } from './style';
 import AppLoading from 'expo-app-loading';
 import { Login } from "./src/pages/login";
 import { BemVindo } from "./src/pages/bemVindo";
+import { Calendario} from "./src/pages/calendario";
 import { Back } from "./src/components/Back";
 import { Input } from "./src/components/input";
 import { InputFormulario } from "./src/components/InputFormulario";
@@ -57,7 +58,8 @@ export default function App() {
       <Title title='Login' sizeReturn={35}/>
       <HelloStraus name='Straus'/> 
     </View>*/
-    <BemVindo/>
+   // <BemVindo/>
+   <Calendario/>
   );
 }
 
