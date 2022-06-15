@@ -11,8 +11,8 @@ type loginType = {
     password: string;
 }
 interface AuthContextData {
-    user: UserProps;
-    login: (data: loginType) => Promise<void>;
+    userFinal: UserProps;
+    login: (data: loginType) =>Promise <Number | UserProps>;
 }
 
 interface AuthProviderProps {
@@ -20,39 +20,38 @@ interface AuthProviderProps {
 }
 interface signInResponse {
     token: String;
-    user: UserProps;
+    userFinal: UserProps;
 }
 export const AuthContext = createContext({} as AuthContextData);
-
 export function AuthProvider({ children }: AuthProviderProps) {
 
-    var [user, setUser] = useState<UserProps>({} as UserProps)
+    var [userFinal, setUserFinal] = useState<UserProps>({} as UserProps)
     const [loading, setLoading] = useState(false);
 
     const login = useCallback(async(data: loginType) => {
        
         const response = await api.post<signInResponse>('/users/login',{
-            email: data.email,
-            password:data.password
+                email: data.email,
+                password:data.password
+        }).then((res) => {
+            setLoading(true);
+            const tokonReceived = res.data.token;
+            api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
+            const userReceived = res.data.userFinal;
+            setUserFinal(userReceived);
+            setLoading(false)
+            return 1
+        }).catch(err =>{
+           return 0 
         });
-
-       // console.log(response.data)
-
-        setLoading(true);
-
-        const tokonReceived = response.data.token;
-        api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
-
-        const userReceived = response.data.user;
-        setUser(userReceived);
-        setLoading(false)
-        console.log(user)
+        
+        return response
    
     }, []);
     
     return (
         <AuthContext.Provider value={{
-            user,
+            userFinal,
             login
         }}>
             {children}

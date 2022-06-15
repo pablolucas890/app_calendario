@@ -7,5 +7,9 @@ export type RootStackParamList = {
 
 
 export interface UserProps {
-    name:String;
+ 
+    id:string;
+    name:string;
+    email:string
+    type:Number;
 }
