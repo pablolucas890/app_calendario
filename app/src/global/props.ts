@@ -7,5 +7,5 @@ export type RootStackParamList = {
 
 
 export interface UserProps {
-    nome:String;
+    name:String;
 }

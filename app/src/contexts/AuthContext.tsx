@@ -20,7 +20,7 @@ interface AuthProviderProps {
 }
 interface signInResponse {
     token: String;
-    //user: UserProps;
+    user: UserProps;
 }
 export const AuthContext = createContext({} as AuthContextData);
 
@@ -30,22 +30,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [loading, setLoading] = useState(false);
 
     const login = useCallback(async(data: loginType) => {
-        try {
-            const response = await api.get('/events');
-            console.log(response.data);
-        } catch (err) {
-            console.log(err)
-        }
-        
+       
+        const response = await api.post<signInResponse>('/users/login',{
+            email: data.email,
+            password:data.password
+        });
+
+       // console.log(response.data)
 
         setLoading(true);
 
-        //const tokonReceived = response.data.token;
-        //api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
+        const tokonReceived = response.data.token;
+        api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
 
-       // const userReceived = response.data.user;
-        //setUser(userReceived);
+        const userReceived = response.data.user;
+        setUser(userReceived);
         setLoading(false)
+        console.log(user)
+   
     }, []);
     
     return (

@@ -16,6 +16,7 @@ export function Login({ navigation }: Props) {
     const { login } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLog, setLog] = useState("")
 
     async function alertMessage() {
         if (email && password) {
@@ -23,7 +24,10 @@ export function Login({ navigation }: Props) {
                 email,
                 password
             });
-            console.log(response)
+        
+     
+        console.log(response)
+            
         } else {
             Alert.alert('Você não preencheu todos os campos', 'Atenção', [
                 {
@@ -74,3 +78,7 @@ export function Login({ navigation }: Props) {
         </KeyboardAvoidingView>
     );
 }
+function setLoadingAsync(arg0: boolean) {
+    throw new Error('Function not implemented.');
+}
+
