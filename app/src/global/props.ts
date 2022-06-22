@@ -8,8 +8,9 @@ export type RootStackParamList = {
 
 export interface UserProps {
  
-    id:string;
+    id?:string;
     name:string;
     email:string
-    type:Number;
+    type?:Number;
+    password?:string;
 }

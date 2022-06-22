@@ -10,9 +10,12 @@ type loginType = {
     email: string;
     password: string;
 }
+
+
 interface AuthContextData {
     userFinal: UserProps;
-    login: (data: loginType) =>Promise <Number | UserProps>;
+    login: (data: loginType) =>Promise <Number>;
+    createUser: (data: UserProps) =>Promise <Number>;
 }
 
 interface AuthProviderProps {
@@ -34,12 +37,37 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 email: data.email,
                 password:data.password
         }).then((res) => {
+            if(res.status === 403){
+                return 2
+            }
             setLoading(true);
             const tokonReceived = res.data.token;
             api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
             const userReceived = res.data.userFinal;
+            console.log(userReceived)
             setUserFinal(userReceived);
             setLoading(false)
+            return 1
+        }).catch(err =>{
+           return 0 
+        });
+        
+        return response
+   
+    }, []);
+
+    const createUser = useCallback(async(data: UserProps) => {
+       
+        const response = await api.post<UserProps>('/users',{
+                name : data.name,
+                email: data.email,
+                password:data.password,
+                type: 0
+        }).then((res) => {
+
+            const userReceived = res.data;
+            console.log(userReceived)
+            setUserFinal(userReceived);
             return 1
         }).catch(err =>{
            return 0 
@@ -52,7 +80,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return (
         <AuthContext.Provider value={{
             userFinal,
-            login
+            login,
+            createUser
         }}>
             {children}
         </AuthContext.Provider>
