@@ -3,6 +3,7 @@ import { Calendar } from 'react-native-calendario';
 import { styles } from './style';
 
 
+
 let date = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
