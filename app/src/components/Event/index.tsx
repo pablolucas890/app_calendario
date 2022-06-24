@@ -6,8 +6,9 @@ import { color } from '../../util/color';
 interface Props {
     colorReceived: string;
     description: string;
+    title: string;
 }
-export function Event({ colorReceived, description, ...rest }: Props) {
+export function Event({ title, colorReceived, description, ...rest }: Props) {
     const sizeDesc = 40;
     return (
         <View style={styles.container}>
@@ -20,7 +21,7 @@ export function Event({ colorReceived, description, ...rest }: Props) {
                 <Feather color={color.cinza3} size={20} name='more-horizontal' />
             </View>
             <View style={{ marginTop: 5 }}>
-                <Text style={{ fontSize: 18, fontWeight: 'bold', fontFamily: 'Quicksand_600SemiBold', letterSpacing: 1.5 }}>Edital 22/2022</Text>
+                <Text style={{ fontSize: 18, fontWeight: 'bold', fontFamily: 'Quicksand_600SemiBold', letterSpacing: 1.5 }}>{title}</Text>
             </View>
             <View style={{ marginTop: 5, flexDirection:'row' }}>
                 <Text style={{ fontFamily: 'Quicksand_600SemiBold', color: color.cinza1 }}>{description.length > sizeDesc ? description.substring(0, sizeDesc) + '...' : description}</Text>
