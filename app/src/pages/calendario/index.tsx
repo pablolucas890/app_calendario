@@ -24,7 +24,7 @@ export function Calendario() {
       date_end: '2022-06-25 16:00:00',
       title: 'Palestra XXXX',
       description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      type: 0
+      type: 0,
     },
     {
       id: '2',
@@ -32,7 +32,7 @@ export function Calendario() {
       date_end: '2022-06-25 20:00:00',
       title: 'Palestra ggggggggggggggggggg',
       description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
-      type: 1
+      type: 1,
     },
     {
       id: '3',
@@ -40,7 +40,7 @@ export function Calendario() {
       date_end: '2022-06-30 16:00:00',
       title: 'Palestra sgsdfg sdfg sdfg',
       description: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
-      type: 0
+      type: 0,
     }
   ]
 
@@ -81,6 +81,8 @@ export function Calendario() {
             colorReceived={item.type == 0 ? 'blue' : 'orange'}
             description={item.description}
             title={item.title}
+            date_start={item.date_start}
+            date_end={item.date_end}
           />
         )}
         showsVerticalScrollIndicator={false}
