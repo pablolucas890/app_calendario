@@ -111,8 +111,6 @@ export function BemVindo({ navigation }: Props) {
                                     setPassword2(value);
                                 }}
                                 keyboardType='default' />
-                            <RegisterEventButton />
-
                         </View>
 
                         <View style={styles.middle2}>
