@@ -9,6 +9,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../global/props';
 import { useAuth } from '../../hooks/useAuth';
 import { useState } from 'react';
+import { RegisterEventButton } from '../../components/RegisterEventButton';
 type Props = NativeStackScreenProps<RootStackParamList>;
 
 export function BemVindo({ navigation }: Props) {
@@ -74,7 +75,6 @@ export function BemVindo({ navigation }: Props) {
         navigation.navigate('Login')
     }
     return (
-
         <KeyboardAvoidingView
             behavior={'height'}
             style={{ flex: 1 }}
@@ -92,13 +92,13 @@ export function BemVindo({ navigation }: Props) {
                             <Input
                                 placeholder='Nome'
                                 onChangeText={(value) => {
-                                    setName(value);
+                                    return setName(value);
                                 }}
                                 keyboardType='name-phone-pad' />
 
                             <Input placeholder='Email'
                                 onChangeText={(value) => {
-                                    setEmail(value);
+                                    return setEmail(value);
                                 }}
                                 keyboardType='email-address' />
                             <Input placeholder='Senha'
@@ -111,7 +111,10 @@ export function BemVindo({ navigation }: Props) {
                                     setPassword2(value);
                                 }}
                                 keyboardType='default' />
+                            <RegisterEventButton />
+
                         </View>
+
                         <View style={styles.middle2}>
                             <Buttom color={true} title='Cadastrar' onPress={alertMessage} />
                         </View>
@@ -119,5 +122,7 @@ export function BemVindo({ navigation }: Props) {
                 </ScrollView>
             </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
+      
+
     );
 }
