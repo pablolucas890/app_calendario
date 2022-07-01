@@ -1,4 +1,4 @@
-import { Alert, FlatList, View } from 'react-native';
+import { Alert, FlatList, ScrollView, View } from 'react-native';
 import { Calendar } from 'react-native-calendario';
 import { styles } from './style';
 import { Event } from '../../components/Event'
@@ -6,6 +6,8 @@ import { useState } from 'react';
 let date = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
+
+import { Buttom } from '../../components/Buttom';
 
 interface eventProps {
   id: string,
@@ -36,12 +38,29 @@ export function Calendario() {
     },
     {
       id: '3',
-      date_start: '2022-07-30 15:00:00',
-      date_end: '2022-07-30 16:00:00',
-      title: 'Palestra sgsdfg sdfg sdfg',
-      description: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
-      type: 0,
-    }
+      date_start: '2022-07-25 20:00:00',
+      date_end: '2022-07-25 21:00:00',
+      title: 'Palestra aaaaaaaaaaaaa',
+      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+      type: 2,
+    },
+    {
+      id: '4',
+      date_start: '2022-07-25 20:00:00',
+      date_end: '2022-07-25 21:00:00',
+      title: 'Palestra bbbbbbbbbbb',
+      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+      type: 3,
+    },
+    {
+      id: '5',
+      date_start: '2022-07-25 20:00:00',
+      date_end: '2022-07-25 21:00:00',
+      title: 'Palestra cccccccccccccc',
+      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+      type: 4,
+    },
+   
   ]
 
   function handlePressDate(range) {
@@ -64,7 +83,80 @@ export function Calendario() {
   }
   return (
     <View style={styles.container}>
-
+      <ScrollView>
+        <Calendar 
+          onPress={(range) => handlePressDate(range)}
+          // minDate={new Date(2018, 3, 20)}
+          startDate={new Date(year, month, date)}
+          firstDayMonday={false}
+          monthHeight={300}
+          numberOfMonths={1}        // endDate={new Date(2018, 4, 5)}
+          theme={{
+            activeDayColor: 'red',
+            monthTitleTextStyle: {
+              color: '#6d95da',
+              fontWeight: '300',
+              fontSize: 16,
+            },
+            emptyMonthContainerStyle: {},
+            emptyMonthTextStyle: {
+              fontWeight: '200',
+            },
+            weekColumnsContainerStyle: {},
+            weekColumnStyle: {
+              paddingVertical: 10,
+            },
+            weekColumnTextStyle: {
+              color: '#b6c1cd',
+              fontSize: 13,
+            },
+            nonTouchableDayContainerStyle: {},
+            nonTouchableDayTextStyle: {},
+            startDateContainerStyle: {},
+            endDateContainerStyle: {},
+            dayContainerStyle: {},
+            dayTextStyle: {
+              color: '#2d4150',
+              fontWeight: '200',
+              fontSize: 15,
+            },
+            dayOutOfRangeContainerStyle: {},
+            dayOutOfRangeTextStyle: {},
+            todayContainerStyle: {},
+            todayTextStyle: {
+              color: '#6d95da',
+            },
+            activeDayContainerStyle: {
+              backgroundColor: '#6d95da',
+            },
+            activeDayTextStyle: {
+              color: 'white',
+            },
+            nonTouchableLastMonthDayTextStyle: {},
+          }}
+        />
+        <View style= {styles.lista}>
+        <FlatList
+          
+          data={eventsByday}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => (
+            <Event
+              colorReceived={item.type == 0 ? 'blue' : 'orange'}
+              description={item.description}
+              title={item.title}
+              date_start={item.date_start}
+              date_end={item.date_end}
+            />
+          )}
+          showsVerticalScrollIndicator={false}
+        />
+        </View>
+        <View style={styles.inserir}>
+        <Buttom title='Entrar' />
+      </View>
+      </ScrollView>
+      
       <Calendar
         onPress={(range) => handlePressDate(range)}
         // minDate={new Date(2018, 3, 20)}
@@ -131,5 +223,7 @@ export function Calendario() {
         showsVerticalScrollIndicator={false}
       />
     </View>
+
+
   );
 }
