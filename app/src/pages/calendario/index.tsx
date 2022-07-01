@@ -33,7 +33,7 @@ export function Calendario() {
       date_start: '2022-07-25 19:00:00',
       date_end: '2022-07-25 20:00:00',
       title: 'Palestra ggggggggggggggggggg',
-      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbggggggggggggggggggggggggggggggggjjjjjjjjjjj',
       type: 1,
     },
     {
@@ -60,14 +60,7 @@ export function Calendario() {
       description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       type: 4,
     },
-    {
-      id: '3',
-      date_start: '2022-07-30 15:00:00',
-      date_end: '2022-07-30 16:00:00',
-      title: 'Palestra sgsdfg sdfg sdfg',
-      description: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
-      type: 0,
-    }
+   
   ]
 
   function handlePressDate(range) {
@@ -164,6 +157,71 @@ export function Calendario() {
       </View>
       </ScrollView>
       
+      <Calendar
+        onPress={(range) => handlePressDate(range)}
+        // minDate={new Date(2018, 3, 20)}
+        startDate={new Date(year, month, date)}
+        firstDayMonday={false}
+        monthHeight={300}
+        numberOfMonths={1}        // endDate={new Date(2018, 4, 5)}
+        theme={{
+          activeDayColor: 'red',
+          monthTitleTextStyle: {
+            color: '#393838',
+            fontWeight: '300',
+            fontSize: 16,
+          },
+          emptyMonthContainerStyle: {},
+          emptyMonthTextStyle: {
+            fontWeight: '300',
+          },
+          weekColumnsContainerStyle: {},
+          weekColumnStyle: {
+            paddingVertical: 10,
+          },
+          weekColumnTextStyle: {
+            color: '#019D4A',
+            fontSize: 13,
+          },
+          nonTouchableDayContainerStyle: {},
+          nonTouchableDayTextStyle: {},
+          startDateContainerStyle: {},
+          endDateContainerStyle: {},
+          dayContainerStyle: {},
+          dayTextStyle: {
+            color: '#393838',
+            fontWeight: '400',
+            fontSize: 15,
+          },
+          dayOutOfRangeContainerStyle: {},
+          dayOutOfRangeTextStyle: {},
+          todayContainerStyle: {},
+          todayTextStyle: {
+            color: '#6d95da',
+          },
+          activeDayContainerStyle: {
+            backgroundColor: '#019D4A',
+          },
+          activeDayTextStyle: {
+            color: 'white',
+          },
+          nonTouchableLastMonthDayTextStyle: {},
+        }}
+      />
+      <FlatList
+        data={eventsByday}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => (
+          <Event
+            colorReceived={item.type == 0 ? '#0095FF' : '#FF7A00'}
+            description={item.description}
+            title={item.title}
+            date_start={item.date_start}
+            date_end={item.date_end}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
 
 
