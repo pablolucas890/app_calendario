@@ -27,13 +27,21 @@ export function Event({ date_start, date_end, title, colorReceived, description,
                 {
                     //FALTA ESTILIZAR AQUI, POIS APARECE COMO UMA NOVA JANELA
                 }
-                <View>
-                    <Text>oiiiiiiiiiiiiiiiiiiiiiiiiiiii</Text>
-                    <Text>oiiiiiiiiiiiiiiiiiiiiiiiiiiii</Text>
+                <View style={styles.modal}>
+                    <View>
+                        {colorReceived == '#0095FF' ? <Text style={styles.eventoFormal}>Evento Formal</Text> : <Text style={styles.eventoInformal}>Evento Informal</Text>}
+                    </View>
+                    <View>
+                        <Text style={styles.titulo}>{title}</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.horario}>{horario}</Text>
+                    </View>
+                    <Text style={styles.textoModal}>{description}</Text>
                     <TouchableOpacity
                         onPress={() => setBooleanModal(false)}
                     >
-                        <Text style={{ fontSize: 13, marginLeft: 5, fontFamily: 'Quicksand_600SemiBold', color: colorReceived }}>Ver mais</Text>
+                        <Text style={{ fontSize: 20, marginLeft: 40, marginRight: 20, marginTop: 40,textAlign: 'center', fontFamily: 'Quicksand_600SemiBold', color: colorReceived }}>Ver menos</Text>
                     </TouchableOpacity>
                 </View>
             </Modal>

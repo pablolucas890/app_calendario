@@ -20,24 +20,24 @@ export function Calendario() {
   const events: eventProps[] = [
     {
       id: '1',
-      date_start: '2022-06-25 15:00:00',
-      date_end: '2022-06-25 16:00:00',
+      date_start: '2022-07-25 15:00:00',
+      date_end: '2022-07-25 16:00:00',
       title: 'Palestra XXXX',
       description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       type: 0,
     },
     {
       id: '2',
-      date_start: '2022-06-25 19:00:00',
-      date_end: '2022-06-25 20:00:00',
+      date_start: '2022-07-25 19:00:00',
+      date_end: '2022-07-25 20:00:00',
       title: 'Palestra ggggggggggggggggggg',
-      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbggggggggggggggggggggggggggggggggjjjjjjjjjjj',
       type: 1,
     },
     {
       id: '3',
-      date_start: '2022-06-30 15:00:00',
-      date_end: '2022-06-30 16:00:00',
+      date_start: '2022-07-30 15:00:00',
+      date_end: '2022-07-30 16:00:00',
       title: 'Palestra sgsdfg sdfg sdfg',
       description: 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccc',
       type: 0,
@@ -48,8 +48,8 @@ export function Calendario() {
     setEventsByday([]);
     const dateRec: string = range.toString()
     let mes = dateRec.substring(4, 7)
-    if (mes === 'Jun') {
-      mes = '06'
+    if (mes === 'Jul') {
+      mes = '07'
     }
     const day = dateRec.substring(8, 10)
     const year = dateRec.substring(11, 15)
@@ -75,20 +75,20 @@ export function Calendario() {
         theme={{
           activeDayColor: 'red',
           monthTitleTextStyle: {
-            color: '#6d95da',
+            color: '#393838',
             fontWeight: '300',
             fontSize: 16,
           },
           emptyMonthContainerStyle: {},
           emptyMonthTextStyle: {
-            fontWeight: '200',
+            fontWeight: '300',
           },
           weekColumnsContainerStyle: {},
           weekColumnStyle: {
             paddingVertical: 10,
           },
           weekColumnTextStyle: {
-            color: '#b6c1cd',
+            color: '#019D4A',
             fontSize: 13,
           },
           nonTouchableDayContainerStyle: {},
@@ -97,8 +97,8 @@ export function Calendario() {
           endDateContainerStyle: {},
           dayContainerStyle: {},
           dayTextStyle: {
-            color: '#2d4150',
-            fontWeight: '200',
+            color: '#393838',
+            fontWeight: '400',
             fontSize: 15,
           },
           dayOutOfRangeContainerStyle: {},
@@ -108,7 +108,7 @@ export function Calendario() {
             color: '#6d95da',
           },
           activeDayContainerStyle: {
-            backgroundColor: '#6d95da',
+            backgroundColor: '#019D4A',
           },
           activeDayTextStyle: {
             color: 'white',
@@ -121,7 +121,7 @@ export function Calendario() {
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
           <Event
-            colorReceived={item.type == 0 ? 'blue' : 'orange'}
+            colorReceived={item.type == 0 ? '#0095FF' : '#FF7A00'}
             description={item.description}
             title={item.title}
             date_start={item.date_start}
