@@ -6,6 +6,7 @@ import { useState } from 'react';
 let date = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
+let currentDate = new Date(year, month, date);
 
 import { Buttom } from '../../components/Buttom';
 
@@ -72,6 +73,7 @@ export function Calendario() {
     }
     const day = dateRec.substring(8, 10)
     const year = dateRec.substring(11, 15)
+    currentDate = range
     const dateAll = year + '-' + mes + '-' + day
     let aux = 0;
     for (let i = 0; i < events.length; i++) {
@@ -87,12 +89,12 @@ export function Calendario() {
         <Calendar
           onPress={(range) => handlePressDate(range)}
           // minDate={new Date(2018, 3, 20)}
-          startDate={new Date(year, month, date)}
-          firstDayMonday={false}
+          startDate={currentDate}
+          firstDayMonday={true}
           monthHeight={300}
           numberOfMonths={1}        // endDate={new Date(2018, 4, 5)}
           theme={{
-            activeDayColor: 'red',
+            activeDayColor: '',
             monthTitleTextStyle: {
               color: '#393838',
               fontWeight: '300',
@@ -124,7 +126,7 @@ export function Calendario() {
             dayOutOfRangeTextStyle: {},
             todayContainerStyle: {},
             todayTextStyle: {
-              color: '#6d95da',
+              color: '#393838',
             },
             activeDayContainerStyle: {
               backgroundColor: '#019D4A',
@@ -153,7 +155,7 @@ export function Calendario() {
         />
         </View>
         <View style={styles.inserir}>
-        <Buttom title='Entrar' />
+        <Buttom color title='Entrar' />
       </View>
       </ScrollView>
     </View>

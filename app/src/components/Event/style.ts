@@ -5,6 +5,7 @@ import { color } from '../../util/color';
 export const styles = StyleSheet.create({
     container: {
         width: '100%',
+        paddingHorizontal: 16,
     },
     top:{
         flexDirection: 'row',

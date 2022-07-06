@@ -13,7 +13,7 @@ interface Props {
 }
 export function Event({ date_start, date_end, title, colorReceived, description, ...rest }: Props) {
     const horario = date_start.substring(11, 16) + ' - ' + date_end.substring(11, 16);
-    const sizeDesc = 40;
+    const sizeDesc = 35;
     const [booleanModal, setBooleanModal] = useState(false);
     return (
         <View style={styles.container}>
@@ -51,7 +51,6 @@ export function Event({ date_start, date_end, title, colorReceived, description,
                     <Feather name='stop-circle' color={colorReceived} style={{ paddingRight: 10, paddingTop: 5 }} />
                     <Text style={{ color: color.cinza3, fontWeight: 'bold' }}>{horario}</Text>
                 </View>
-                <Feather color={color.cinza3} size={20} name='more-horizontal' />
             </View>
             <View style={{ marginTop: 5 }}>
                 <Text style={{ fontSize: 18, fontWeight: 'bold', fontFamily: 'Quicksand_600SemiBold', letterSpacing: 1.5 }}>{title}</Text>
