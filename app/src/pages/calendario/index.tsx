@@ -40,29 +40,10 @@ export function Calendario() {
       id: '3',
       date_start: '2022-07-25 20:00:00',
       date_end: '2022-07-25 21:00:00',
-      title: 'Palestra aaaaaaaaaaaaa',
+      title: 'Palestra aaaaaaaaaaaaa',react-native-gesture-handler
       description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       type: 0,
-    },
-    {
-      id: '4',
-      date_start: '2022-07-30 20:00:00',
-      date_end: '2022-07-25 21:00:00',
-      title: 'Palestra bbbbbbbbbbb',
-      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
-      type: 0,
-    },
-    {
-      id: '5',
-      date_start: '2022-07-30 20:00:00',
-      date_end: '2022-07-25 21:00:00',
-      title: 'Palestra cccccccccccccc',
-      description: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbggggggggggggggggggg',
-      type: 1,
-    },
-   
-  ]
-
+    },react-native-gesture-handler
   function handlePressDate(range) {
     setEventsByday([]);
     const dateRec: string = range.toString()
