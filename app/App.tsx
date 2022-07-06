@@ -1,9 +1,6 @@
 
 import AppLoading from 'expo-app-loading';
 
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-type Props = NativeStackScreenProps<RootStackParamList>;
-
 import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-google-fonts/quicksand'
 import { RootStackParamList } from './src/global/props';
 import Routes from './src/routes';
@@ -21,6 +18,7 @@ export default function App() {
     return <AppLoading />
 
   return (
+
 
     <AuthProvider>
       <Routes/>
