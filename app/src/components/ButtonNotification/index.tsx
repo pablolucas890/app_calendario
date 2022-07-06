@@ -8,6 +8,7 @@ interface ButtomProps extends TouchableOpacityProps {
     active: boolean;
 }
 export function ButtonNotification({ title, active, ...rest }: ButtomProps) {
+    
     if(!active){
         return (
             <TouchableOpacity style = {styles.botao}>

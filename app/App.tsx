@@ -45,10 +45,13 @@ export default function App() {
     // </View>
     //<Login />
     <View style={styles.container}>
+      <View style={styles.notificacao}>
       <ButtonNotification title="Informal" active = {false} 
       />
       <ButtonNotification title="Formal" active = {true} 
       />
+      </View>
+      
     </View>
   );
 }

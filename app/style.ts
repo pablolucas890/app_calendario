@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
+        width: '100%',
         flex: 1,
-        alignItems: 'center',
         justifyContent: 'center',
     },
     description: {
@@ -16,5 +16,11 @@ export const styles = StyleSheet.create({
     center:{
         width: '100%',
         paddingHorizontal: '15%'
+    },
+    notificacao:{
+        justifyContent: 'flex-start',
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
     }
 });
