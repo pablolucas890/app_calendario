@@ -14,8 +14,10 @@ type loginType = {
 
 interface AuthContextData {
     userFinal: UserProps;
-    login: (data: loginType) =>Promise <Number>;
-    createUser: (data: UserProps) =>Promise <Number>;
+    login: (data: loginType) => Promise<Number>;
+    createUser: (data: UserProps) => Promise<Number>;
+    eventslist: EventProps[];
+    loading:Boolean;
 }
 
 interface AuthProviderProps {
@@ -25,63 +27,91 @@ interface signInResponse {
     token: String;
     userFinal: UserProps;
 }
+interface EventProps {
+    id: string,
+    date_start: string,
+    date_end: string,
+    title: string,
+    description: string,
+    type: Number,
+
+}
 export const AuthContext = createContext({} as AuthContextData);
 export function AuthProvider({ children }: AuthProviderProps) {
 
     var [userFinal, setUserFinal] = useState<UserProps>({} as UserProps)
     const [loading, setLoading] = useState(false);
+    const [eventslist, setEventslist] = useState<EventProps[]>([])
 
-    const login = useCallback(async(data: loginType) => {
-       
-        const response = await api.post<signInResponse>('/users/login',{
-                email: data.email,
-                password:data.password
+    const login = useCallback(async (data: loginType) => {
+
+        const response = await api.post<signInResponse>('/users/login', {
+            email: data.email,
+            password: data.password
         }).then((res) => {
-            if(res.status === 403){
+            if (res.status === 403) {
                 return 2
             }
             setLoading(true);
             const tokonReceived = res.data.token;
             api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
             const userReceived = res.data.userFinal;
-            console.log(userReceived)
             setUserFinal(userReceived);
+            listEvents()
             setLoading(false)
             return 1
-        }).catch(err =>{
-           return 0 
+        }).catch(err => {
+            return 0
         });
-        
+
         return response
-   
+
     }, []);
 
-    const createUser = useCallback(async(data: UserProps) => {
-       
-        const response = await api.post<UserProps>('/users',{
-                name : data.name,
-                email: data.email,
-                password:data.password,
-                type: 0
+    const listEvents = useCallback(async () => {
+
+        const response = await api.get<EventProps[]>('/events').then((res) => {
+            setLoading(true);
+            setEventslist(res.data)
+            setLoading(false)
+            return 1
+        }).catch(err => {
+            return 0
+        });
+
+        return response
+
+    }, []);
+
+
+    const createUser = useCallback(async (data: UserProps) => {
+
+        const response = await api.post<UserProps>('/users', {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            type: 0
         }).then((res) => {
 
             const userReceived = res.data;
             console.log(userReceived)
             setUserFinal(userReceived);
             return 1
-        }).catch(err =>{
-           return 0 
+        }).catch(err => {
+            return 0
         });
-        
+
         return response
-   
+
     }, []);
-    
+
     return (
         <AuthContext.Provider value={{
             userFinal,
             login,
-            createUser
+            createUser,
+            eventslist,
+            loading
         }}>
             {children}
         </AuthContext.Provider>

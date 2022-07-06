@@ -9,6 +9,7 @@ declare global {
             Index: String;
             Login: String;
             BemVindo: String;
+            Calendario: String;
         }
     }
 }
