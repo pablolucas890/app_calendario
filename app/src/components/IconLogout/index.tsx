@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 
 interface ButtomProps extends TouchableOpacityProps {
     text: String;
-    icon: String;
+    icon: "log-out" | "log-in";
 }
 
 export function Logout({icon, text, ...rest }: ButtomProps) {

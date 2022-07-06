@@ -22,4 +22,17 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontFamily: 'Quicksand_600SemiBold'
     },
+    botao2: {
+        backgroundColor:'red',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        padding: 15,
+        width: '100%',
+        marginBottom: 5,
+        borderRadius: 8,
+        shadowOffset: { width: 2, height: 3, },
+        shadowColor: 'black',
+        shadowOpacity: 0.25,
+    },
 });
