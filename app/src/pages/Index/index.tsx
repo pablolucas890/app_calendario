@@ -16,6 +16,9 @@ export function Index({ navigation }: Props) {
     function handleLogin() {
       navigation.navigate('Login');
     }
+    function handleCalendar() {
+      navigation.navigate('Calendario');
+    }
     return (
           <View style={styles.container}>
       <View>
@@ -26,7 +29,7 @@ export function Index({ navigation }: Props) {
       </Text>
       <View style={styles.center}>
         <Buttom color={true} onPress={handleLogin} title='Entrar' />
-        <Buttom color={true} title='Público' />
+        <Buttom color={true} onPress={handleCalendar} title='Público' />
       </View>
     </View>
     );

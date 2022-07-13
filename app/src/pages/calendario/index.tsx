@@ -1,8 +1,8 @@
-import { Alert, FlatList, ScrollView, View } from 'react-native';
+import { Alert, FlatList, ScrollView, View ,useWindowDimensions, Text} from 'react-native';
 import { Calendar } from 'react-native-calendario';
 import { styles } from './style';
 import { Event } from '../../components/Event'
-import { useState } from 'react';
+import React, { useState } from 'react';
 let date = new Date().getDate();
 let month = new Date().getMonth();
 let year = new Date().getFullYear();
@@ -10,6 +10,13 @@ let year = new Date().getFullYear();
 import { Buttom } from '../../components/Buttom';
 import { useAuth } from '../../hooks/useAuth';
 import { useEffect } from 'react';
+import { NavigationHelpersContext } from '@react-navigation/native';
+import { RootStackParamList } from '../../global/props';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { Back } from '../../components/Back';
+
+type Props = NativeStackScreenProps<RootStackParamList>;
+
 
 interface eventProps {
   id: string,
@@ -17,17 +24,19 @@ interface eventProps {
   date_end: string,
   title: string,
   description: string,
-  type: Number,
+  event_type: Number,
 }
-export function Calendario() {
-  let { eventslist, loading } = useAuth()
+export function Calendario({navigation} : Props) {
+  const { height, width } = useWindowDimensions();
+  console.log(height)
+  let { eventslist, loading, userFinal,setUserFinal2 } = useAuth()
+
+  console.log(userFinal.name)
   const [eventsByday, setEventsByday] = useState<eventProps[]>([])
   useEffect(() => {
     if (!loading) {
       for (let index = 0; index < eventslist.length; index++) {
         const element = eventslist[index];
-        element.date_end.replaceAll('T', ' ')
-        element.date_start.replaceAll('T', ' ')
         eventslist[index] = element;
       }
       console.log('novo events')
@@ -53,6 +62,18 @@ export function Calendario() {
       }
     }
   }
+
+  function handleBack(){
+    if (userFinal.name === undefined){
+      navigation.navigate('Index')  
+    }else{
+      navigation.navigate('Login')
+    }
+  }
+  function handleWelcome(){
+    setUserFinal2()
+    navigation.navigate('Index')
+  }
   return (
     <View style={styles.container}>
       {loading
@@ -61,12 +82,13 @@ export function Calendario() {
 
         </View>)
         : (<ScrollView>
+          <Back onPress={handleBack}/>
           <Calendar
             onPress={(range) => handlePressDate(range)}
             // minDate={new Date(2018, 3, 20)}
             startDate={new Date(year, month, date)}
             firstDayMonday={false}
-            monthHeight={300}
+            monthHeight={378}
             numberOfMonths={1}        // endDate={new Date(2018, 4, 5)}
             theme={{
               activeDayColor: 'red',
@@ -119,7 +141,7 @@ export function Calendario() {
               keyExtractor={(item) => String(item.id)}
               renderItem={({ item }) => (
                 <Event
-                  colorReceived={item.type == 0 ? '#0095FF' : '#FF7A00'}
+                  colorReceived={item.event_type == 0 ? '#0095FF' : '#FF7A00'}
                   description={item.description}
                   title={item.title}
                   date_start={item.date_start}
@@ -130,7 +152,23 @@ export function Calendario() {
             />
           </View>
           <View style={styles.inserir}>
-            <Buttom title='Entrar' />
+
+          { 
+              userFinal.name != undefined && userFinal != undefined && userFinal != null
+              ?
+              <Buttom title='Logout' onPress={handleWelcome} color={false} />
+              :
+              <View></View>
+            }
+          </View>
+          <View>
+            { 
+              userFinal.name != undefined && userFinal != undefined && userFinal != null
+              ?
+              <View><Text>BoTÃO</Text></View>
+              :
+              <View></View>
+            }
           </View>
         </ScrollView>
         )}

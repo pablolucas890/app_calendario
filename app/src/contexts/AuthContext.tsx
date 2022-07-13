@@ -18,6 +18,7 @@ interface AuthContextData {
     createUser: (data: UserProps) => Promise<Number>;
     eventslist: EventProps[];
     loading:Boolean;
+    setUserFinal2: () => void;
 }
 
 interface AuthProviderProps {
@@ -42,7 +43,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     var [userFinal, setUserFinal] = useState<UserProps>({} as UserProps)
     const [loading, setLoading] = useState(false);
     const [eventslist, setEventslist] = useState<EventProps[]>([])
-
+    function setUserFinal2(){
+        setUserFinal({} as UserProps);
+    }
     const login = useCallback(async (data: loginType) => {
 
         const response = await api.post<signInResponse>('/users/login', {
@@ -83,6 +86,29 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     }, []);
 
+    const createEvent = useCallback(async (data: EventProps) => {
+
+        const response = await api.post<EventProps>('/events', {
+            title: data.title,
+            username : userFinal.name,
+            description : data.description,
+            link : "",
+            image: 1,
+            event_type: data.type,
+            calendar_type: 1,
+            date_start: data.date_start,
+            date_end: data.date_end
+
+        }).then((res) => {
+
+        }).catch(err => {
+            return 0
+        });
+
+        return response
+
+    }, []);
+
 
     const createUser = useCallback(async (data: UserProps) => {
 
@@ -111,7 +137,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
             login,
             createUser,
             eventslist,
-            loading
+            loading,
+            setUserFinal2
         }}>
             {children}
         </AuthContext.Provider>
