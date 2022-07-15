@@ -12,6 +12,7 @@ interface Props {
     date_end: string;
 }
 export function Event({ date_start, date_end, title, colorReceived, description, ...rest }: Props) {
+
     const horario = date_start.substring(11, 16) + ' - ' + date_end.substring(11, 16);
     const sizeDesc = 40;
     const [booleanModal, setBooleanModal] = useState(false);

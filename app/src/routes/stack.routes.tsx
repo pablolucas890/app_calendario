@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Login} from "../pages/login";
 import { BemVindo} from "../pages/bemVindo";
 import { Index} from "../pages/Index";
+import { Calendario } from "../pages/calendario";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,11 @@ const AppRoutes: React.FC = () =>(
         <Stack.Screen
             name="BemVindo"
             component={BemVindo}
+            options={{headerShown: false }}
+        />
+        <Stack.Screen
+            name="Calendario"
+            component={Calendario}
             options={{headerShown: false }}
         />
     </Stack.Navigator>

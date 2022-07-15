@@ -3,6 +3,7 @@ export type RootStackParamList = {
     Login: undefined;
     Index: undefined;
     BemVindo: undefined;
+    Calendario: undefined;
 };
 
 

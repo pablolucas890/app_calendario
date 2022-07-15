@@ -25,6 +25,8 @@ export function Login({ navigation }: Props) {
   const [password, setPassword] = useState("");
   const [isError, setErrpr] = useState(false);
 
+
+
   async function alertMessage() {
     if (email && password) {
       const response = await login({
@@ -41,6 +43,8 @@ export function Login({ navigation }: Props) {
         },
         { text: "OK" },
       ]);
+    }else {
+      navigation.navigate("Calendario")
     }
       
     } else {
@@ -60,6 +64,10 @@ export function Login({ navigation }: Props) {
   function handleCadastro() {
   
     navigation.navigate("BemVindo");
+  }
+  function handleCalendario() {
+  
+    navigation.navigate("Calendario");
   }
   return (
     <KeyboardAvoidingView behavior={"height"} style={{ flex: 1 }}>
