@@ -33,6 +33,7 @@ export function Calendario({navigation} : Props) {
 
   console.log(userFinal.name)
   const [eventsByday, setEventsByday] = useState<eventProps[]>([])
+
   useEffect(() => {
     if (!loading) {
       for (let index = 0; index < eventslist.length; index++) {

@@ -5,6 +5,7 @@ import { useFonts, Quicksand_600SemiBold, Quicksand_400Regular } from '@expo-goo
 import { RootStackParamList } from './src/global/props';
 import Routes from './src/routes';
 import { AuthProvider } from './src/contexts/AuthContext';
+import { View } from 'react-native';
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
 
     <AuthProvider>
       <Routes/>
+
     </AuthProvider>
   );
 }
