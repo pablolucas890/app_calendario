@@ -19,6 +19,8 @@ interface AuthContextData {
     eventslist: EventProps[];
     loading:Boolean;
     setUserFinal2: () => void;
+    createEvent:(data:EventProps) => Promise<Number>
+    setEvento: () => void;
 }
 
 interface AuthProviderProps {
@@ -29,13 +31,12 @@ interface signInResponse {
     userFinal: UserProps;
 }
 interface EventProps {
-    id: string,
+    id?: string,
     date_start: string,
     date_end: string,
     title: string,
     description: string,
-    type: Number,
-
+    event_type: Number,
 }
 export const AuthContext = createContext({} as AuthContextData);
 export function AuthProvider({ children }: AuthProviderProps) {
@@ -45,6 +46,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [eventslist, setEventslist] = useState<EventProps[]>([])
     function setUserFinal2(){
         setUserFinal({} as UserProps);
+    }
+    function setEvento(){
+        listEvents()
     }
     const login = useCallback(async (data: loginType) => {
 
@@ -60,7 +64,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
             api.defaults.headers.common["Authorization"] = `Bearer ${tokonReceived}`;
             const userReceived = res.data.userFinal;
             setUserFinal(userReceived);
-            listEvents()
             setLoading(false)
             return 1
         }).catch(err => {
@@ -77,13 +80,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
             setLoading(true);
             setEventslist(res.data)
             setLoading(false)
-            return 1
         }).catch(err => {
-            return 0
+            
         });
-
         return response
-
     }, []);
 
     const createEvent = useCallback(async (data: EventProps) => {
@@ -92,14 +92,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
             title: data.title,
             username : userFinal.name,
             description : data.description,
-            link : "",
+            link : "teste",
             image: 1,
-            event_type: data.type,
+            event_type: data.event_type,
             calendar_type: 1,
             date_start: data.date_start,
             date_end: data.date_end
 
         }).then((res) => {
+            return 1
 
         }).catch(err => {
             return 0
@@ -138,7 +139,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
             createUser,
             eventslist,
             loading,
-            setUserFinal2
+            setUserFinal2,
+            createEvent,
+            setEvento
         }}>
             {children}
         </AuthContext.Provider>

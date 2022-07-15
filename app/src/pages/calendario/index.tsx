@@ -1,4 +1,4 @@
-import { Alert, FlatList, ScrollView, View ,useWindowDimensions, Text} from 'react-native';
+import { TouchableOpacity, FlatList, ScrollView, View ,useWindowDimensions, Text} from 'react-native';
 import { Calendar } from 'react-native-calendario';
 import { styles } from './style';
 import { Event } from '../../components/Event'
@@ -14,12 +14,13 @@ import { NavigationHelpersContext } from '@react-navigation/native';
 import { RootStackParamList } from '../../global/props';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Back } from '../../components/Back';
+import { RegisterEventButton } from '../../components/RegisterEventButton';
 
 type Props = NativeStackScreenProps<RootStackParamList>;
 
 
 interface eventProps {
-  id: string,
+  id?: string,
   date_start: string,
   date_end: string,
   title: string,
@@ -29,7 +30,7 @@ interface eventProps {
 export function Calendario({navigation} : Props) {
   const { height, width } = useWindowDimensions();
   console.log(height)
-  let { eventslist, loading, userFinal,setUserFinal2 } = useAuth()
+  let {setEvento, eventslist, loading, userFinal,setUserFinal2 } = useAuth()
 
   console.log(userFinal.name)
   const [eventsByday, setEventsByday] = useState<eventProps[]>([])
@@ -46,6 +47,7 @@ export function Calendario({navigation} : Props) {
     }
   });
   function handlePressDate(range) {
+    setEvento()
     setEventsByday([]);
     const dateRec: string = range.toString()
     let mes = dateRec.substring(4, 7)
@@ -75,6 +77,9 @@ export function Calendario({navigation} : Props) {
     setUserFinal2()
     navigation.navigate('Index')
   }
+  function handleCreate(){
+    navigation.navigate('Evento')
+  }
   return (
     <View style={styles.container}>
       {loading
@@ -84,6 +89,9 @@ export function Calendario({navigation} : Props) {
         </View>)
         : (<ScrollView>
           <Back onPress={handleBack}/>
+        {/* <TouchableOpacity style={{marginTop: 12}} onPress={() => {setEvento()}}>
+            <Text>Atualizar Eventos</Text>
+        </TouchableOpacity> */}
           <Calendar
             onPress={(range) => handlePressDate(range)}
             // minDate={new Date(2018, 3, 20)}
@@ -166,7 +174,7 @@ export function Calendario({navigation} : Props) {
             { 
               userFinal.name != undefined && userFinal != undefined && userFinal != null
               ?
-              <View><Text>BoTÃO</Text></View>
+              <View style={{}}><RegisterEventButton onPress={handleCreate}/></View>
               :
               <View></View>
             }

@@ -18,7 +18,7 @@ export function BemVindo({ navigation }: Props) {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [name, setName] = useState("");
-
+    
     async function alertMessage() {
         if (!(email && password && name)) {
 

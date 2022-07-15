@@ -7,29 +7,47 @@ import {
     Alert,
 } from "react-native";
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { Title } from "../../components/Title";
 import { Input } from "../../components/input";
 import { TextGray } from "../../components/TextGray";
 import { Buttom } from "../../components/Buttom";
-import { RootStackParamList } from "../../global/props";
-import { styles } from "../login/style";
+import { styles } from "./style";
+import { useAuth } from "../../hooks/useAuth";
 
-export function Evento(){
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../global/props';
+import { Back } from "../../components/Back";
+type Props = NativeStackScreenProps<RootStackParamList>;
+
+
+
+
+export function Evento({navigation}:Props){
+
+
 
     const [titulo, setTitulo] = useState('');
     const [descricao, setDesc] = useState('');
     const [tipo, setTipo] = useState('');
-    const [data, setData] = useState('');
-
+    const [dataInicio, setDataInicio] = useState('');
+    const [dataFim, setDataFim] = useState('');
+    const [horaInicio, sethoraInicio] = useState('');
+    const [horaFim, sethoraFim] = useState('');
+    const {createEvent, setEvento} = useAuth();
     const state = {
         data: ''
     }
 
-    // function handleback(){
-    //     navigation.navigate("Index");
-    // }
+    function handleCreateEvent(){
+        const response = createEvent({title:titulo, description:descricao, event_type: 0, date_start:dataInicio+" "+horaInicio,date_end:dataFim+ " "+horaFim})
+        setEvento();
+        navigation.navigate("Calendario");
+    }
+
+    function handleBack(){
+        navigation.navigate("Calendario");
+    }
 
     // function changeDate = (valor) => {
     //     this.setState({
@@ -40,7 +58,8 @@ export function Evento(){
     return (
         <KeyboardAvoidingView behavior={"height"} style={{ flex: 1 }}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <ScrollView style={{ flex: 1 }}>
+                <ScrollView style={{ flex: 1, paddingTop: 32}}>
+                    <Back onPress={handleBack}/>
                     <View style={styles.container}>
                         <View>
                             <Title title="Cadastrar Evento" sizeReturn={35} />
@@ -69,9 +88,35 @@ export function Evento(){
                             />
                             <Input 
                                 onChangeText={(value) =>{
-                                    setData(value);
+                                    setDataInicio(value);
                                 }}
-                                placeholder="Ex.: 20/02/2018"
+                                placeholder="Data de inicio.: 20/02/2018"
+                                keyboardType="default"
+                                
+                            />
+                            <Input 
+                                onChangeText={(value) =>{
+                                    sethoraInicio(value);
+                                }}
+                                placeholder="Hora de inicio.: 20:00"
+                                keyboardType="default"
+                                
+                            />
+                             
+                           
+                            <Input 
+                                onChangeText={(value) =>{
+                                    setDataFim(value);
+                                }}
+                                placeholder="Data de fim.: 20/02/2018"
+                                keyboardType="default"
+                                
+                            />
+                            <Input 
+                                onChangeText={(value) =>{
+                                    sethoraFim(value);
+                                }}
+                                placeholder="Hora de termino.: 20:00"
                                 keyboardType="default"
                                 
                             />
@@ -83,7 +128,7 @@ export function Evento(){
                             /> */}
                         </View>
                         <View style={styles.middle2}>
-                            <Buttom color={true} title="Entrar"/>
+                            <Buttom color={true} onPress={handleCreateEvent} title="Cadastrar"/>
                             <View style={{ height: 15 }}></View>
                             <TextGray  text="Cancelar" /> 
                             {/* onPress={handleback} */}

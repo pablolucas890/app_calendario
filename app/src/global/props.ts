@@ -4,6 +4,7 @@ export type RootStackParamList = {
     Index: undefined;
     BemVindo: undefined;
     Calendario: undefined;
+    Evento: undefined
 };
 
 

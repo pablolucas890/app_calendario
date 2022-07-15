@@ -8,15 +8,19 @@ import { Buttom } from '../../components/Buttom'
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../global/props';
+import { useAuth } from '../../hooks/useAuth';
 type Props = NativeStackScreenProps<RootStackParamList>;
 
 
 
 export function Index({ navigation }: Props) {
+  const {setEvento} = useAuth()
     function handleLogin() {
+      setEvento()
       navigation.navigate('Login');
     }
     function handleCalendar() {
+      setEvento()
       navigation.navigate('Calendario');
     }
     return (

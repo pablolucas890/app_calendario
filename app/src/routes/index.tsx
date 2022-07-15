@@ -10,6 +10,7 @@ declare global {
             Login: String;
             BemVindo: String;
             Calendario: String;
+            Evento:String;
         }
     }
 }
