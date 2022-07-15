@@ -5,7 +5,7 @@ import {
     ScrollView,
     View,
     Alert,
-  } from "react-native";
+} from "react-native";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useState } from "react";
@@ -16,16 +16,26 @@ import { Buttom } from "../../components/Buttom";
 import { RootStackParamList } from "../../global/props";
 import { styles } from "../login/style";
 
-type Props = NativeStackScreenProps<RootStackParamList>;
-
-export function evento({ navigation } : Props){
+export function Evento(){
 
     const [titulo, setTitulo] = useState('');
     const [descricao, setDesc] = useState('');
+    const [tipo, setTipo] = useState('');
+    const [data, setData] = useState('');
 
-    function handleback(){
-        navigation.navigate("Index");
+    const state = {
+        data: ''
     }
+
+    // function handleback(){
+    //     navigation.navigate("Index");
+    // }
+
+    // function changeDate = (valor) => {
+    //     this.setState({
+    //         data: valor
+    //     })
+    // }
 
     return (
         <KeyboardAvoidingView behavior={"height"} style={{ flex: 1 }}>
@@ -50,11 +60,32 @@ export function evento({ navigation } : Props){
                                 placeholder="Insira a descrição do evento"
                                 keyboardType="default"
                             />
+                            <Input 
+                                onChangeText={(value) =>{
+                                    setTipo(value);
+                                }}
+                                placeholder="Ex.: Formal"
+                                keyboardType="default"
+                            />
+                            <Input 
+                                onChangeText={(value) =>{
+                                    setData(value);
+                                }}
+                                placeholder="Ex.: 20/02/2018"
+                                keyboardType="default"
+                            />
+                            {/* <DatePicker 
+                                format="DD/MM/YYYY"
+                                style={{width: 350}}
+                                date={this.state.data}
+                                onDateChange={this.changeDate}
+                            /> */}
                         </View>
                         <View style={styles.middle2}>
                             <Buttom color={true} title="Entrar"/>
                             <View style={{ height: 15 }}></View>
-                            <TextGray onPress={handleback} text="Cancelar" />
+                            <TextGray  text="Cancelar" /> 
+                            {/* onPress={handleback} */}
                         </View>
                     </View>
                 </ScrollView>
