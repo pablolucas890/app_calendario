@@ -73,6 +73,7 @@ export function Evento(){
                                 }}
                                 placeholder="Ex.: 20/02/2018"
                                 keyboardType="default"
+                                
                             />
                             {/* <DatePicker 
                                 format="DD/MM/YYYY"
