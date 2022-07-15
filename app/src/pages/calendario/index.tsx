@@ -139,6 +139,7 @@ export function Calendario() {
         <FlatList
           
           data={eventsByday}
+          
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <Event
